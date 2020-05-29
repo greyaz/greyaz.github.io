@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>yzh.works</title>
+		<style>
+			body{
+				background-image: url('imgs/bg.png');
+				background-repeat: no-repeat;
+				background-position: top center;
+				background-size: auto 100vh;
+				background-color: #0c0a0a;
+				margin: 0;
+				font-family: sans-serif;
+			}
+			#main{
+				width: 40em;
+				height: 54vh;
+				background-image: url('imgs/title.png');
+				background-repeat: no-repeat;
+				background-size: contain;
+				margin: 30vh auto auto auto;
+			}
+			#wrap{
+				width: 36em;
+				height: 100%;
+				margin: 0 auto;
+				position: relative;
+			}
+			.button{
+				position: absolute;
+				width: 17em;
+				height: 4em;
+				background-image: url('imgs/btn.png');
+				background-size: 100% 100%;
+				bottom: 0;
+				color: #fff;
+				text-decoration: none;
+				text-align: center;
+				line-height: 4em;
+			}
+			.button:hover{
+				background-image: url('imgs/btn_hover.png');
+				height: 3.7em;
+			}
+			.button img{
+				height: 25%;
+			}
+			.mail{
+				right: 0;
+			}
+
+			@media screen and (max-width: 640px) {
+				#main{
+					width: 20em;
+				}
+				#wrap{
+					width: 17em;
+				}
+				.button{
+					font-size: 12px;
+					right: 2.8em;
+					bottom: 1em;
+				}
+				.pdf{
+					bottom: 7em;
+				}
+			}
+		</style>
+		<script type="text/javascript">
+			window.addEventListener("load", function(event){
+				var body = document.getElementsByTagName("body")[0];
+
+				var resizeTimeout;
+				var resizeHandler = function(){
+					if (!resizeTimeout) {
+						resizeTimeout = setTimeout(function() {
+							resizeTimeout = null;
+							window.innerWidth / window.innerHeight > 16 / 9 ? body.style["background-size"] = "100vw auto" : body.style["background-size"] = "auto 100vh";
+						}, 66);
+					}
+				}
+
+				window.addEventListener("resize", resizeHandler);
+				resizeHandler();
+			})
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="wrap">
+				<a class="button pdf" href="portfolio.pdf"><img src="imgs/icon_down.png">&nbsp;&nbsp;&nbsp;PDF</a>
+				<a class="button mail" href="mailto:hi@yzh.works"><img src="imgs/icon_mail.png">&nbsp;&nbsp;&nbsp;Mail</a>
+			</div>
+		</div>
+	</body>
+</html>
